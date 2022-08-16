@@ -1,21 +1,11 @@
 # 1. Post office lat lon
 # 2. Address to lat lon api
 # 3. How to find distance between two lat lon
-# You
-# 10:52 AM
 # Horizontal and vertical distance
 # https://data.gov.in/node/6818285
-# You
-# 10:54 AM
 # 4. Check building name with database
-# You
-# 10:58 AM
 # 5. Divide given address into building name, flat number, pincode
-# You
-# 11:02 AM
 # fake point
-# You
-# 11:13 AM
 # 1. Aayush
 # 2. Anushka
 # 3. Jai

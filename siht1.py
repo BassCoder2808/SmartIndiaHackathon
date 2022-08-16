@@ -7,7 +7,7 @@
 
 from geopy.geocoders import Nominatim
 
-address='The Club, Mumbai'
+address='Charkop, Kandivali, Mumbai, 400067'
 geolocator = Nominatim(user_agent="Your_Name")
 location = geolocator.geocode(address)
 print(location.address)
