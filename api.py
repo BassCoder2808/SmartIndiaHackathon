@@ -79,12 +79,56 @@ def checkValidAddress(country_code, country_area, city, postal_code, street_area
         # Normalize address to check valid and get database format
         database_format = normalize_address(address)
 
+        response_API = requests.get('https://api.postalpincode.in/pincode/' + address["postal_code"])
+        data = response_API.text
+        data = json.loads(data)[0]
+
+        found_city = 0
+        found_street = 0
+
+        # name, district, division, region,  block
+        if data['Status'] == 'Success':
+            post_office_data = data['PostOffice']
+            for data in post_office_data:
+                if address["city"] in data["District"] or address["city"] in data["Division"] or address["city"] in data["Block"]:
+                    found_city = 1
+                arr1 = data["Name"].split(" ")
+                arr2 = data["Division"].split(" ")
+                arr3 = data["Block"].split(" ")
+
+                # using remove() to
+                # perform removal
+                while("" in arr1) :
+                    arr1.remove("")
+
+                while("" in arr2) :
+                    arr2.remove("")
+
+                while("" in arr3) :
+                    arr3.remove("")
+
+                for d in arr1:
+                    if d in address["street_address"]:
+                        found_street = 1
+                
+                for d in arr2:
+                    if d in address["street_address"]:
+                        found_street = 1
+
+                for d in arr3:
+                    if d in address["street_address"]:
+                        found_street = 1
+
         # Get format of the address according to the country postal format
         address_postal_format = format_address(address, latin=True)
 
+        if found_city == 0:
+            raise InvalidAddress(errors = "Invalid city", message = "Please enter a valid city for pincode")
+
         return {
             "database_format": database_format,
-            "postal_format": address_postal_format
+            "postal_format": address_postal_format,
+            "street_address": found_street
         }
     except InvalidAddress as e:
         print(e.errors)
@@ -7872,3 +7916,12 @@ wordlist = [
     "waviness"
 ]
 
+# import requests
+# import urllib.parse
+
+# address = 'Shivaji Nagar, Bangalore, KA 560001'
+# url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
+
+# response = requests.get(url).json()
+# print(response[0]["lat"])
+# print(response[0]["lon"])

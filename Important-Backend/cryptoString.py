@@ -20,6 +20,7 @@ fernet = Fernet(key)
 encMessage = fernet.encrypt(message.encode())
 
 print("original string: ", message)
+print(type(encMessage))
 print("encrypted string: ","cleaver pasture second throng " + encMessage.decode())
 
 # decrypt the encrypted string with the
