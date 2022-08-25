@@ -30,14 +30,14 @@ def getFourWords(latitude, longitude):
     latlon2dec = int(lat[4:6] + lon[4:5])
     latlon4dec = int(lat[6:7] + lon[5:7])
 
-    print(lat1dec, lon1dec, latlon2dec, latlon4dec)
-
     groups = [
         lat1dec + 0,
         lon1dec + 2000,
         latlon2dec + 5610,
         latlon4dec + 6610
     ]
+
+    print(groups)
 
     return wordlist[groups[0]] + " " + wordlist[groups[1]] + " " + wordlist[groups[2]] + " " + wordlist[groups[3]]
 
@@ -7728,8 +7728,8 @@ wordlist = [
     "waviness"
 ]
 
-print(getFourWords(19.212066, 72.824152))
-print(getFourWords(19.212066, 72.835448))
+print(getFourWords(21.212066, 72.864152))
+print(getFourWords(21.212080, 72.8645212))
 
 
 
