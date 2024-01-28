@@ -1,7 +1,7 @@
 # import googlemaps
 # from datetime import datetime
 
-# gmaps = googlemaps.Client(key='AIzaSyCVtJ6jb6vro5RvWz31GDDSgjmHxvEdu-U')
+# gmaps = googlemaps.Client(key='')
 
 # # Geocoding an address
 # geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
@@ -25,7 +25,7 @@ Simple Program to help you get started with Google's APIs
 import urllib.request, json
 #Google MapsDdirections API endpoint
 endpoint = 'https://maps.googleapis.com/maps/api/geocode/json?'
-api_key = 'AIzaSyCA-EgW2VVPJO6pdSWxUKV9Ws3AVjdLiqo'
+api_key = ''
 #Asks the user to input Where they are and where they want to go.
 origin = 'rail mitra plot number 125, sector 1 charkop, kandivali west, mumbai 400067'
 # destination = input('Where do you want to go?: ').replace(' ','+')
