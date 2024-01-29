@@ -14,4 +14,5 @@ time.sleep(5)
 
 btn_go = driver.find_element("id", "searchbox-searchbutton")
 btn_go.click()
+
 time.sleep(15)
